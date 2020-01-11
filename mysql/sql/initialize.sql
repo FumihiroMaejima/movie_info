@@ -1,0 +1,5 @@
+CREATE DATABASE IF NOT EXISTS pymovie CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+CREATE USER IF NOT EXISTS 'pymovie'@'%' IDENTIFIED BY 'pymovie';
+GRANT ALL PRIVILEGES ON pymovie.* TO 'pymovie'@'%';
+
+FLUSH PRIVILEGES;

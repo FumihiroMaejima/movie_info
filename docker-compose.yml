@@ -1,0 +1,55 @@
+version: "3.5"
+
+services:
+
+  uwsgi:
+    build: ./app
+    container_name: pymovie_uwsgi
+    volumes:
+      - ./app:/var/www/
+    expose:
+      - "${UWSGI_PORT}"
+    depends_on:
+      - db
+    ports:
+      - "${UWSGI_PORT}:${UWSGI_PORT}"
+    tty: true
+    environment:
+      TZ: "Asia/Tokyo"
+      APP_URL: ${APP_URL}
+      APP_ENV: ${APP_ENV}
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_HOST: ${DB_HOST}
+      DB_DATABASE: ${DB_DATABASE}
+      INCUIRY_TO: ${INCUIRY_TO}
+
+  nginx:
+    build: ./nginx
+    container_name: pymovie_nginx
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx/uwsgi_params:/etc/nginx/uwsgi_params
+      - ./app/static:/static
+      - ./front/movie:/var/www/
+    depends_on:
+      - uwsgi
+    ports:
+      - "${NGINX_HOST_HTTP_PORT}:${NGINX_HOST_HTTP_PORT}"
+      - "${NGINX_HOST_HTTPS_PORT}:${NGINX_HOST_HTTPS_PORT}"
+      - "${NGINX_FRONT_END_PORT}:${NGINX_FRONT_END_PORT}"
+    environment:
+      TZ: "Asia/Tokyo"
+
+  db:
+    build: ./mysql
+    container_name: pymovie_db
+    #command: --default-authentication-plugin=mysql_native_password #ver8
+    volumes:
+      - ./mysql/mysql_data:/var/lib/mysql # データの永続化
+      - ./mysql/sql:/docker-entrypoint-initdb.d
+    ports:
+      - "${MYSQL_PORT}:${MYSQL_PORT}"
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      TZ: "Asia/Tokyo"
