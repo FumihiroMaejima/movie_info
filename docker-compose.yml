@@ -32,12 +32,14 @@ services:
       - ./nginx/uwsgi_params:/etc/nginx/uwsgi_params
       - ./app/static:/static
       - ./front/movie:/var/www/
+      - ./nginx/change-npm-version.sh:/usr/local/src/change-npm-version.sh
       - ./nginx/vue-cli-setup.sh:/usr/local/src/vue-cli-setup.sh
     depends_on:
       - uwsgi
     ports:
-      - "${NGINX_HOST_HTTP_PORT}:${NGINX_HOST_HTTP_PORT}"
-      - "${NGINX_HOST_HTTPS_PORT}:${NGINX_HOST_HTTPS_PORT}"
+      #- "${NGINX_HOST_HTTP_PORT}:${NGINX_HOST_HTTP_PORT}"
+      #- "${NGINX_HOST_HTTPS_PORT}:${NGINX_HOST_HTTPS_PORT}"
+      - "${NGINX_BACK_END_PORT}:${NGINX_BACK_END_PORT}"
       - "${NGINX_FRONT_END_PORT}:${NGINX_FRONT_END_PORT}"
     environment:
       TZ: "Asia/Tokyo"

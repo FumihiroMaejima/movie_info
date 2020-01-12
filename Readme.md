@@ -129,19 +129,6 @@ nodeとnpmのバージョンの切り替えとyarnとvue-cliのインストー�
 $ docker exec -it pymovie_nginx /bin/sh -c "cd /usr/local/src && ./vue-cli-setup.sh"
 ```
 
-＊npmのバージョン切り替えが出来てもyarnがインストールされない場合、下記のコマンドを実行
-
-バージョンは実行時の最新版
-
-```
-$ docker exec -it pymovie_nginx /bin/sh -c "npm install -g yarn"
-$ docker exec -it pymovie_nginx /bin/sh -c "yarn -v"
-1.21.1
-$ docker exec -it pymovie_nginx /bin/sh -c "yarn global add @vue/cli"
-$ docker exec -it pymovie_nginx /bin/sh -c "vue --version"
-@vue/cli 4.1.2
-```
-
 その他のフロントエンドの手順は[フロントエンド専用のREADME](./front/movie/README.md)を参照
 
 ## movie アプリケーションの作成
