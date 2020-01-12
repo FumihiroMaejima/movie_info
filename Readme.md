@@ -131,55 +131,9 @@ $ docker exec -it pymovie_nginx /bin/sh -c "cd /usr/local/src && ./vue-cli-setup
 
 その他のフロントエンドの手順は[フロントエンド専用のREADME](./front/movie/README.md)を参照
 
-## movie アプリケーションの作成
+## movieアプリケーションの新規作成
 
-sttings.pyの「INSTALLED_APPS」に下記を追記
-
-```Python
-INSTALLED_APPS = {
-...
-    'webpack_loader',
-    'your_app',
-...
-}
-```
-movieディレクトリへのシンボリックリンクの作成
-
-```shell-session
-$ docker-compose run uwsgi ln -s ../movie movie
-```
-
-アセットコンパイル
-
-```shell-session
-$ docker-compose run uwsgi npm run dev
-```
-pymovie/urls.pyを下記の通り修正する。
-
-```Python
-from django.contrib import admin
-from django.urls import include, path
-
-urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include('movie.urls')),
-]
-```
-
-gameアプリーションデータのマイグレーションファイル作成
-
-```shell-session
-$ docker-compose run uwsgi python manage.py makemigrations game
-```
-
-gameアプリーションデータのマイグレーション実行
-
-```shell-session
-$ docker-compose run uwsgi python manage.py migrate
-```
-
-
-## アプリケーションの新規作成
+イメージの作り直し等による既存アプリケーションの作成は[下記](##既存movieアプリケーションの作成)へ
 
 ```shell-session
 $ docker-compose run uwsgi ./manage.py startapp your_app
@@ -189,9 +143,146 @@ pymovie/settings.pyの「INSTALLED_APPS」に作成したアプリケーショ�
 ```Python
 INSTALLED_APPS = {
 ...
-    'your_app',
+    'your_app.apps.Your_AppConfig',
 ...
 }
+...
+TEMPLATES = [
+    {
+    ...
+        'DIRS': (os.path.join(BASE_DIR, 'templates'),),
+    ...
+    }
+]
+```
+
+movie/urls.pyの作成
+
+```
+touch app/src/movie/urls.py
+```
+
+下記の通り編集
+
+```Python
+from django.urls import path
+from . import views
+
+app_name = 'your_app'
+urlpatterns = [
+    path('', views.index, name='index'),
+    path('about', views.about, name='about'),
+]
+```
+
+movie/views.pyの編集
+
+```Python
+from django.http import HttpResponse
+from django.template import loader
+
+def index(request):
+    latest_question_list = 1
+    template = loader.get_template('your_app/index.html')
+    context = {}
+    return HttpResponse(template.render(context, request))
+
+def about(request):
+    template = loader.get_template('your_app/about.html')
+    context = {}
+    return HttpResponse(template.render(context, request))
+```
+
+pymovie/urls.pyの編集
+
+```Python
+from django.contrib import admin
+from django.urls import include, path
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('', include('your_app.urls')),
+]
+```
+
+movie/templatesディレクトリの作成
+
+```
+mkdir app/src/movie/templates
+```
+
+
+movie/templates/movieディレクトリの作成
+
+```
+mkdir app/src/movie/templates/movie
+```
+
+movie/templates/movieディレクトリの作成
+
+```
+mkdir app/src/movie/templates/movie
+```
+
+movie/templates/layout.htmlの作成
+
+```
+touch app/src/movie/templates/layout.html
+```
+
+movie/templates/movie/ index.htmlの作成
+
+```
+touch app/src/movie/templates/movie/index.html
+```
+
+/app/static/下にアセットディレクトリを作成&アセット追加
+
+```
+mkdir app/static/css
+mkdir app/static/img
+mkdir app/static/js
+touch app/static/css/app.css
+touch app/static/js/app.js
+```
+
+
+## 既存movieアプリケーションの作成
+
+アプリケーションの新規作成は[movieアプリケーションの新規作成](##movieアプリケーションの新規作成)へ
+
+movieディレクトリへのシンボリックリンクの作成
+
+movieディレクトリの[パス](./app/movie):[/app/movie]
+
+```shell-session
+$ docker-compose run uwsgi ln -s ../movie movie
+```
+
+sttings.pyの「INSTALLED_APPS」に下記を追記
+
+```Python
+INSTALLED_APPS = {
+...
+    'your_app.apps.Your_AppConfig',
+...
+}
+```
+
+## movieアプリケーションのマイグレーション実行
+
+movieアプリーションデータのマイグレーションファイル作成
+
+```shell-session
+$ docker-compose run uwsgi python manage.py makemigrations movie
+```
+
+マイグレーションファイル編集
+
+マイグレーション実行
+
+```shell-session
+$ docker-compose run uwsgi python manage.py migrate
 ```
 
 

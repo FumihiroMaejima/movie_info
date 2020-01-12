@@ -127,6 +127,4 @@ app/static/admin/js/admin/*
 app/static/admin/js/vendor/*
 ### bundle
 app/static/bundles
-### bundle
-app/static/css
-app/static/js
+
