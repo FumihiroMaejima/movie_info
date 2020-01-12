@@ -32,6 +32,7 @@ services:
       - ./nginx/uwsgi_params:/etc/nginx/uwsgi_params
       - ./app/static:/static
       - ./front/movie:/var/www/
+      - ./nginx/vue-cli-setup.sh:/usr/local/src/vue-cli-setup.sh
     depends_on:
       - uwsgi
     ports:
