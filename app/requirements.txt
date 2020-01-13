@@ -1,0 +1,7 @@
+Django==2.2.9
+uwsgi==2.0.18
+#PyMySQL==0.9.3
+mysqlclient==1.4.6
+django-webpack-loader==0.6.0
+#Pillow==6.2.2
+Pillow==7.0.0
