@@ -5,7 +5,11 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "lint:css": "stylelint src/**/*.css",
+    "fmt": "prettier --write \"src/**/*.js\"",
+    "mock:build": "axios-mock-server -b",
+    "mock:watch": "axios-mock-server -w"
   },
   "dependencies": {
     "@vue/test-utils": "^1.0.0-beta.30",
