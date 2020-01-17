@@ -294,3 +294,13 @@ export default {
 }
 </script>
 ```
+
+
+## vuetifのインストール
+
+vuetifのインストール
+
+```
+$ docker exec -it pymovie_nginx /bin/sh -c "cd /var/www/ && vue add vuetify"
+```
+
