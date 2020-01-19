@@ -1,8 +1,9 @@
 <template>
+  <!--
   <v-app>
     <v-app-bar
       app
-      color="primary"
+      color="brown darken-3"
       dark
     >
       <div class="d-flex align-center">
@@ -41,6 +42,8 @@
       <router-view/>
     </v-content>
   </v-app>
+  -->
+  <router-view/>
 </template>
 
 <script>
