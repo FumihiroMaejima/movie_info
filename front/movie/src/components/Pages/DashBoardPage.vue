@@ -19,15 +19,26 @@
         </v-list-item>
         <v-divider></v-divider>
 
-        <v-list dense nav>
-          <v-list-item v-for="nav_list in nav_lists" :key="nav_list.name">
-            <v-list-item-icon>
-              <v-icon>{{ nav_list.icon }}</v-icon>
-            </v-list-item-icon>
-            <v-list-item-content>
-              <v-list-item-title>{{ nav_list.name }}</v-list-item-title>
-            </v-list-item-content>
-          </v-list-item>
+        <v-list nav dense>
+          <v-list-group
+            v-for="nav_list in nav_lists"
+            :key="nav_list.name"
+            :prepend-icon="nav_list.icon"
+            no-action
+            :append-icon="nav_list.lists ? undefined : ''"
+          >
+            <template v-slot:activator>
+              <v-list-item-content>
+                <v-list-item-title>{{ nav_list.name }}</v-list-item-title>
+              </v-list-item-content>
+            </template>
+
+            <v-list-item v-for="list in nav_list.lists" :key="list.name" :to="list.link">
+              <v-list-item-content>
+                <v-list-item-title>{{ list }}</v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+          </v-list-group>
         </v-list>
 
       </v-container>
@@ -45,7 +56,8 @@
           </template>
           <v-list>
             <v-subheader>Get helpInfo</v-subheader>
-            <v-list-item v-for="support in supports" :key="support.name">
+
+            <v-list-item v-for="support in supports" :key="support.name" :to="support.link">
               <v-list-item-content>
                 <v-list-item-title>{{ support.icon }}</v-list-item-title>
               </v-list-item-content>
@@ -57,6 +69,23 @@
         </v-menu>
       </v-toolbar-items>
     </v-app-bar>
+
+    <About/>
+    <v-row>
+      <v-col cols="12" sm="6" md="4" lg="3">
+        <Graph/>
+      </v-col>
+      <v-col cols="12" sm="6" md="4" lg="3">
+        <Graph/>
+      </v-col>
+      <v-col cols="12" sm="6" md="4" lg="3">
+        <Graph/>
+      </v-col>
+      <v-col cols="12" sm="6" md="4" lg="3">
+        <Graph/>
+      </v-col>
+    </v-row>
+
     <v-footer color="primary" dark app>
       Vuetify
     </v-footer>
@@ -68,33 +97,75 @@
 //import DashBoardNavBar from '../Molecules/DashBoardNavBar.vue'
 //import DashBoardSideBar from '../Molecules/DashBoardSideBar.vue'
 // import DashBoard from '../Organisms/DashBoard.vue'
+import Graph from '../Molecules/Graph.vue'
+import About from './About.vue'
 
 export default {
   name: 'DashBoardPage',
-  /*
   components: {
-    DashBoardFooter,
-    DashBoardNavBar,
-    DashBoardSideBar
-  }
-  */
+    Graph,
+    About
+    // DashBoardFooter,
+    // DashBoardNavBar,
+    // DashBoardSideBar
+  },
   data(){
     return{
         drawer: null,
         supports:[
-          {name: 'Consulting and suppourt',icon: 'vuetify'},
-          {name: 'Discord community',icon: 'discord'},
-          {name: 'Report a bug',icon: 'bug'},
-          {name: 'Github issue board',icon: 'github-face'},
-          {name: 'Stack overview',icon: 'mdi-stack-overflow'},
+          {
+            name: 'Consulting and suppourt',
+            icon: 'mdi-vuetify',
+            link: '/consulting-and-support'
+          },
+          {
+            name: 'Discord community',
+            icon: 'mdi-discord',
+            link: '/discord-community'},
+          {
+            name: 'Report a bug',
+            icon: 'mdi-bug',
+            link: '/report-a-bug'
+          },
+          {
+            name: 'Github issue board',
+            icon: 'mdi-github-face',
+            link: '/guthub-issue-board'
+          },
+          {
+            name: 'Stack overview',
+            icon: 'mdi-stack-overflow',
+            link: '/stack-overview'
+          },
         ],
-        nav_lists:[
-          {name: 'Getting Started',icon: 'mdi-vuetify'},
-          {name: 'Customization',icon: 'mdi-cogs'},
-          {name: 'Styles & animations',icon: 'mdi-palette'},
-          {name: 'UI Components',icon: 'mdi-view-dashboard'},
-          {name: 'Directives',icon: 'mdi-function'},
-          {name: 'Preminum themes',icon: 'mdi-vuetify'},
+        nav_lists: [
+          {
+            name: 'Getting Started',
+            icon: 'mdi-speedometer',
+            lists:['Quick Start','Pre-made layouts']
+          },
+          {
+            name: 'Customization',
+            icon: 'mdi-cogs'
+          },
+          {
+            name: 'Styles & animations',
+            icon: 'mdi-palette',
+            lists:['Colors','Content','Display']
+          },
+          {
+            name: 'UI Components',
+            icon: 'mdi-view-dashboard',
+            lists:['API explorer','Alerts']
+          },
+          {
+            name: 'Directives',
+            icon: 'mdi-function'
+          },
+          {
+            name: 'Preminum themes',
+            icon: 'mdi-vuetify'
+          },
         ]
     }
   }

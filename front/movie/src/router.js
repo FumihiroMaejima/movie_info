@@ -4,6 +4,7 @@ import HelloWorld from './components/HelloWorld.vue'
 import TestPage from './components/Pages/TestPage.vue'
 import MoviePage from './components/Pages/MoviePage.vue'
 import DashBoardPage from './components/Pages/DashBoardPage.vue'
+import About from './components/Pages/About.vue'
 import LoginPage from './components/Pages/LoginPage.vue'
 
 Vue.use(Router)
@@ -35,6 +36,11 @@ export default new Router({
           path: '/dashboard',
           name: 'dashboard',
           component: DashBoardPage
+        },
+        {
+          path: '/about',
+          name: 'about',
+          component: About
         },
     ]
 })
