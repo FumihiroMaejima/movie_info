@@ -1,6 +1,6 @@
 <template>
   <!-- <v-navigation-drawer app v-model="drawer">Navigation Lists</v-navigation-drawer> -->
-  <v-navigation-drawer app v-model="drawer" clipped>
+  <v-navigation-drawer app v-model="checkClickEvent" clipped>
     <v-container>
       <v-list-item>
         <v-list-item-content>
@@ -40,9 +40,24 @@
 <script>
 export default {
   name: "SideBar",
+  props: {
+    open: {
+      type: Boolean,
+      required: false,
+    }
+  },
+  computed: {
+      checkClickEvent: {
+        get() {
+          return this.open
+        },
+        set() {
+          return this.open
+        }
+      }
+  },
   data(){
     return{
-      drawer: null,
       nav_lists: [
         {
           name: 'Getting Started',

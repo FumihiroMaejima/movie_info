@@ -1,9 +1,9 @@
 <template>
 
   <v-app>
-    <SideBar/>
+    <SideBar :open="clickHumbergerMenu"/>
 
-    <NavBar/>
+    <NavBar @relayClickHunbergerMenuEvent="getClickHunbergerMenuEvent($event)"/>
 
     <v-content>
       <router-view/>
@@ -34,7 +34,12 @@ export default {
     SideBar
   },
   data: () => ({
-    //
+    clickHumbergerMenu: false
   }),
+  methods: {
+    getClickHunbergerMenuEvent(getValue) {
+      this.clickHumbergerMenu = getValue
+    }
+  }
 };
 </script>

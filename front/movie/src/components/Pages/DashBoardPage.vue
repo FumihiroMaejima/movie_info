@@ -1,7 +1,7 @@
 <template>
   <v-app>
+    <!--
     <v-content>
-      <!--
       <DashBoardSideBar/>
       <DashBoardNavBar/>
       <DashBoardFooter/>

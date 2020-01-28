@@ -1,5 +1,5 @@
 <template>
-  <v-app-bar-nav-icon @click="drawer=!drawer"></v-app-bar-nav-icon>
+  <v-app-bar-nav-icon @click="clickHumberburgerMenu"></v-app-bar-nav-icon>
 </template>
 
 <script>
@@ -7,7 +7,13 @@ export default {
   name: "HumburgerMenu",
   data(){
     return{
-        drawer: null
+        openMenu: false
+    }
+  },
+  methods: {
+    clickHumberburgerMenu() {
+      this.openMenu = !this.openMenu
+      this.$emit('clickHumbergerMenuEvent', this.openMenu)
     }
   }
 }

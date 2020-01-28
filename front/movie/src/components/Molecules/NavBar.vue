@@ -1,6 +1,6 @@
 <template>
   <v-app-bar dark app clipped-left>
-    <HumburgerMenu/>
+    <HumburgerMenu @clickHumbergerMenuEvent="relayClickHunbergerMenuEvent($event)"/>
     <v-toolbar-title>Vuetify</v-toolbar-title>
     <v-spacer></v-spacer>
     <v-toolbar-items>
@@ -63,6 +63,11 @@ export default {
           link: '/stack-overview'
         },
       ],
+    }
+  },
+  methods: {
+    relayClickHunbergerMenuEvent(relayValue) {
+      this.$emit('relayClickHunbergerMenuEvent', relayValue)
     }
   }
 }
