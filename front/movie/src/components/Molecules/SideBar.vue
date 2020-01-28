@@ -39,7 +39,7 @@
 
 <script>
 export default {
-  name: "DashBoardSideBar",
+  name: "SideBar",
   data(){
     return{
       drawer: null,

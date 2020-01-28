@@ -1,11 +1,11 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
-import TestPage from './components/Pages/TestPage.vue'
-import MoviePage from './components/Pages/MoviePage.vue'
-import DashBoardPage from './components/Pages/DashBoardPage.vue'
-import About from './components/Pages/About.vue'
-import LoginPage from './components/Pages/LoginPage.vue'
+import TestPage from './components/pages/TestPage.vue'
+import MoviePage from './components/pages/MoviePage.vue'
+import DashBoardPage from './components/pages/DashBoardPage.vue'
+import About from './components/pages/About.vue'
+import LoginPage from './components/pages/LoginPage.vue'
 
 Vue.use(Router)
 

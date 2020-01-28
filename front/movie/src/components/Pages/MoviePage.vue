@@ -7,7 +7,7 @@
 <script>
 //import TestSubModuleComponent from './TestSubModuleComponent.vue'
 //import TestModuleComponent from './TestModuleComponent.vue'
-import Login from '../Organisms/Login.vue'
+import Login from '../organisms/Login.vue'
 //import DashBoardFooter from '../Molecules/DashBoardFooter.vue'
 
 export default {

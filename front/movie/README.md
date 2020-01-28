@@ -296,7 +296,7 @@ export default {
 ```
 
 
-## vuetifのインストール
+## vuetifyのインストール
 
 vuetifのインストール
 

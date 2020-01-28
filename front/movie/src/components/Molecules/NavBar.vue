@@ -27,10 +27,10 @@
 </template>
 
 <script>
-import HumburgerMenu from '../Atoms/HumburgerMenu.vue'
+import HumburgerMenu from '../atoms/HumburgerMenu.vue'
 
 export default {
-  name: "DashBoardNavBar",
+  name: "NavBar",
   components: {
     HumburgerMenu
   },

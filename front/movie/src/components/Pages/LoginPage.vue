@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import Login from '../Organisms/Login.vue'
+import Login from '../organisms/Login.vue'
 
 export default {
     name: 'LoginPage',

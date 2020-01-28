@@ -1,16 +1,16 @@
 <template>
 
   <v-app>
-    <DashBoardSideBar/>
+    <SideBar/>
 
-    <DashBoardNavBar/>
+    <NavBar/>
 
     <v-content>
       <router-view/>
       <Graph/>
     </v-content>
 
-    <DashBoardFooter/>
+    <Footer/>
   </v-app>
 
   <!--
@@ -19,19 +19,19 @@
 </template>
 
 <script>
-import DashBoardFooter from './components/Molecules/DashBoardFooter.vue'
-import DashBoardNavBar from './components/Molecules/DashBoardNavBar.vue'
-import DashBoardSideBar from './components/Molecules/DashBoardSideBar.vue'
-import Graph from './components/Molecules/Graph.vue'
+import Footer from './components/molecules/Footer.vue'
+import NavBar from './components/molecules/NavBar.vue'
+import SideBar from './components/molecules/SideBar.vue'
+import Graph from './components/molecules/Graph.vue'
 
 export default {
   name: 'App',
   components: {
     Graph,
     // About,
-    DashBoardFooter,
-    DashBoardNavBar,
-    DashBoardSideBar
+    Footer,
+    NavBar,
+    SideBar
   },
   data: () => ({
     //

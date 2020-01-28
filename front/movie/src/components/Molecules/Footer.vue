@@ -6,6 +6,6 @@
 
 <script>
 export default {
-  name: "DashBoardFooter",
+  name: "Footer",
 }
 </script>

@@ -97,7 +97,7 @@
 //import DashBoardNavBar from '../Molecules/DashBoardNavBar.vue'
 //import DashBoardSideBar from '../Molecules/DashBoardSideBar.vue'
 // import DashBoard from '../Organisms/DashBoard.vue'
-import Graph from '../Molecules/Graph.vue'
+import Graph from '../molecules/Graph.vue'
 import About from './About.vue'
 
 export default {

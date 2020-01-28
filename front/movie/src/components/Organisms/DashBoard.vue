@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import DashBoardSideBar from '../Molecules/DashBoardSideBar.vue'
+import DashBoardSideBar from '../molecules/DashBoardSideBar.vue'
 
 export default {
   name: "DashBoard",
