@@ -46,16 +46,6 @@ export default {
       required: false,
     }
   },
-  computed: {
-      checkClickEvent: {
-        get() {
-          return this.open
-        },
-        set() {
-          return this.open
-        }
-      }
-  },
   data(){
     return{
       nav_lists: [
@@ -88,6 +78,16 @@ export default {
         },
       ]
     }
-  }
+  },
+  computed: {
+    checkClickEvent: {
+      get() {
+        return this.open
+      },
+      set() {
+        return this.open
+      }
+    }
+  },
 }
 </script>

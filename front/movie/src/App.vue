@@ -1,9 +1,7 @@
 <template>
 
   <v-app>
-    <SideBar :open="clickHumbergerMenu"/>
-
-    <NavBar @relayClickHunbergerMenuEvent="getClickHunbergerMenuEvent($event)"/>
+    <Header/>
 
     <v-content>
       <router-view/>
@@ -19,10 +17,11 @@
 </template>
 
 <script>
-import Footer from './components/molecules/Footer.vue'
-import NavBar from './components/molecules/NavBar.vue'
-import SideBar from './components/molecules/SideBar.vue'
-import Graph from './components/molecules/Graph.vue'
+import Footer from '@/components/molecules/Footer.vue'
+// import NavBar from '@/components/molecules/NavBar.vue'
+// import SideBar from '@/components/molecules/SideBar.vue'
+import Graph from '@/components/molecules/Graph.vue'
+import Header from '@/components/molecules/Header.vue'
 
 export default {
   name: 'App',
@@ -30,16 +29,9 @@ export default {
     Graph,
     // About,
     Footer,
-    NavBar,
-    SideBar
+    Header
   },
   data: () => ({
-    clickHumbergerMenu: false
-  }),
-  methods: {
-    getClickHunbergerMenuEvent(getValue) {
-      this.clickHumbergerMenu = getValue
-    }
-  }
+  })
 };
 </script>
