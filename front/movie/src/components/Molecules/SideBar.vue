@@ -1,6 +1,6 @@
 <template>
   <!-- <v-navigation-drawer app v-model="drawer">Navigation Lists</v-navigation-drawer> -->
-  <v-navigation-drawer app v-model="checkClickEvent" clipped>
+  <v-navigation-drawer app v-model="checkClickEvent" @input="catcheTransionEvent($event)" clipped>
     <v-container>
       <v-list-item>
         <v-list-item-content>
@@ -48,6 +48,7 @@ export default {
   },
   data(){
     return{
+      openflag: false,
       nav_lists: [
         {
           name: 'Getting Started',
@@ -82,12 +83,22 @@ export default {
   computed: {
     checkClickEvent: {
       get() {
+        console.log("get"+this.open)
         return this.open
+        // return this.openflag
       },
       set() {
         return this.open
+        // this.openflag = this.open
+        // console.log(this.openflag)
+        //return this.open
       }
     }
   },
+  methods: {
+    catcheTransionEvent(value){
+      console.log("test:"+value)
+    }
+  }
 }
 </script>

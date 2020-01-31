@@ -4,7 +4,7 @@
     <v-toolbar-title>Vuetify</v-toolbar-title>
     <v-spacer></v-spacer>
     <v-toolbar-items>
-      <v-btn text>For Enterprise</v-btn>
+      <Button :msg="'For Enterprise'"/>
       <v-menu offset-y>
         <template v-slot:activator="{on}">
           <v-btn v-on="on" text>Support<v-icon>mdi-menu-down</v-icon></v-btn>
@@ -28,10 +28,12 @@
 
 <script>
 import HumburgerMenu from '@/components/atoms/HumburgerMenu.vue'
+import Button from '@/components/atoms/Button.vue'
 
 export default {
   name: "NavBar",
   components: {
+    Button,
     HumburgerMenu
   },
   data(){
