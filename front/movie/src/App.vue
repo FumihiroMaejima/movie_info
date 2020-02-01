@@ -1,14 +1,14 @@
 <template>
 
   <v-app>
-    <Header/>
+    <GlobalHeader/>
 
     <v-content>
       <router-view/>
       <Graph/>
     </v-content>
 
-    <Footer/>
+    <GlobalFooter/>
   </v-app>
 
   <!--
@@ -17,19 +17,16 @@
 </template>
 
 <script>
-import Footer from '@/components/molecules/Footer.vue'
-// import NavBar from '@/components/molecules/NavBar.vue'
-// import SideBar from '@/components/molecules/SideBar.vue'
+import GlobalFooter from '@/components/_global/GlobalFooter.vue'
+import GlobalHeader from '@/components/_global/GlobalHeader.vue'
 import Graph from '@/components/molecules/Graph.vue'
-import Header from '@/components/molecules/Header.vue'
 
 export default {
   name: 'App',
   components: {
-    Graph,
-    // About,
-    Footer,
-    Header
+    GlobalFooter,
+    GlobalHeader,
+    Graph
   },
   data: () => ({
   })
