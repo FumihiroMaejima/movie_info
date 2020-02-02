@@ -1,0 +1,35 @@
+{
+    "searchListItem": {
+      "select": null,
+      "items": [
+        "movie title1",
+        "movie title2",
+        "movie title3",
+        "movie title4"
+        ]
+    },
+    "searchMovieInfo": {
+        "image": {
+            "class": "white--text align-end",
+            "height": "200px",
+            "src": "https://cdn.vuetifyjs.com/images/cards/docks.jpg"
+        },
+        "title": "Top 10 Australian beaches",
+        "subTitle": {
+            "class": "pb-0",
+            "text": "Number 10"
+        },
+        "cardText": {
+            "class": "text--primary",
+            "text1": "Whitehaven Beach",
+            "text2": "Whitsunday Island, Whitsunday Islands"
+        },
+        "cardAction": {
+            "class": "primary",
+            "btnColor1": "orange",
+            "btnColor2": "purple",
+            "btnText1": "Share",
+            "btnText2": "Explore"
+        }
+    }
+}

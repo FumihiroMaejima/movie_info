@@ -1,9 +1,6 @@
 <template>
   <v-container>
-    <v-layout
-      text-center
-      wrap
-    >
+    <v-layout text-center wrap>
       <v-flex xs12>
         <v-img
           :src="require('../assets/logo.svg')"
@@ -24,10 +21,7 @@
         </p>
       </v-flex>
 
-      <v-flex
-        mb-5
-        xs12
-      >
+      <v-flex mb-5 xs12>
         <h2 class="headline font-weight-bold mb-3">What's next?</h2>
 
         <v-layout justify-center>
@@ -43,10 +37,7 @@
         </v-layout>
       </v-flex>
 
-      <v-flex
-        xs12
-        mb-5
-      >
+      <v-flex mb-5 xs12>
         <h2 class="headline font-weight-bold mb-3">Important Links</h2>
 
         <v-layout justify-center>
@@ -62,10 +53,7 @@
         </v-layout>
       </v-flex>
 
-      <v-flex
-        xs12
-        mb-5
-      >
+      <v-flex mb-5 xs12>
         <h2 class="headline font-weight-bold mb-3">Ecosystem</h2>
 
         <v-layout justify-center>
