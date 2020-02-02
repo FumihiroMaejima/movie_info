@@ -20,9 +20,12 @@
                 />
               </v-col>
             </v-row>
-            <v-btn class="success" text large>
-              Search!<v-icon dark right>mdi-database-search</v-icon>
-            </v-btn>
+            <v-card-actions>
+              <v-spacer/>
+              <v-btn class="success" text large>
+                Search!<v-icon dark right>mdi-database-search</v-icon>
+              </v-btn>
+            </v-card-actions>
           </v-card-text>
         </v-card>
       </v-flex>

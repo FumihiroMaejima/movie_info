@@ -7,6 +7,7 @@ import DashBoardPage from '@/components/pages/DashBoardPage.vue'
 import About from '@/components/pages/About.vue'
 import LoginPage from '@/components/pages/LoginPage.vue'
 import IndexPage from '@/components/pages/IndexPage.vue'
+import NotFoundPage from '@/components/pages/NotFoundPage.vue'
 
 Vue.use(Router)
 
@@ -42,6 +43,11 @@ export default new Router({
       path: '/about',
       name: 'about',
       component: About
+    },
+    {
+      path: '*',
+      name: 'notFound',
+      component: NotFoundPage
     },
   ]
 })
