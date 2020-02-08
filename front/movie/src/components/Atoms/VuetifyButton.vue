@@ -1,11 +1,29 @@
 <template>
-  <v-btn text @click="clickEvent">{{ msg }}</v-btn>
+  <v-btn
+    :class="classData"
+    text
+    :large="largeOption"
+    @click="clickEvent"
+  >
+    {{ msg }}
+    <slot/>
+  </v-btn>
 </template>
 
 <script>
 export default {
   name: "VuetifyButton",
   props: {
+    classData: {
+      type: String,
+      required: false,
+      default: ''
+    },
+    largeOption: {
+      type: Boolean,
+      required: false,
+      default: false
+    },
     msg: {
       type: String,
       required: true,

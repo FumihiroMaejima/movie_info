@@ -19,22 +19,31 @@
       </v-row>
       <v-card-actions>
         <v-spacer/>
-        <v-btn class="success" text large>
-          Search!<v-icon dark right>mdi-database-search</v-icon>
-        </v-btn>
+        <VuetifyButton
+          :class="'success'"
+          :largeOption="true"
+          :msg="'Search!'"
+          :clickEvent="startSearch"
+        >
+          <template>
+            <VuetifyIcon :icon="'mdi-database-search'"/>
+          </template>
+        </VuetifyButton>
       </v-card-actions>
     </v-card-text>
   </v-card>
 </template>
 
 <script>
+import VuetifyIcon from '@/components/atoms/VuetifyIcon.vue'
+import VuetifyButton from '@/components/atoms/VuetifyButton.vue'
 
 export default {
   name: 'CardMovieSearch',
-  /*
   components: {
-  }
-  */
+    VuetifyButton,
+    VuetifyIcon
+  },
   props: {
     selectData: {
       type: Object,
@@ -62,6 +71,9 @@ export default {
   methods: {
     SetSelectData() {
       return this.selectData
+    },
+    startSearch() {
+      this.$emit('searchEvent', true)
     }
   }
 }

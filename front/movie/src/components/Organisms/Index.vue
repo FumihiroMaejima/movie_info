@@ -4,10 +4,11 @@
       <CardMovieSearch
        :selectData="select"
        :itemsData="items"
+       @searchEvent="showMovieInfo"
       />
     </v-flex>
 
-    <v-flex xs12>
+    <v-flex xs12 v-if="searchFlag">
       <CardMovieInfo
         :movieData="movieInfo"
       />
@@ -33,9 +34,15 @@ export default {
         https://vuetifyjs.com/en/components/cards
         https://vuetifyjs.com/en/components/combobox
       */
+      searchFlag: false,
       select: def.searchListItem.select,
       items: def.searchListItem.items,
       movieInfo: def.searchMovieInfo
+    }
+  },
+  methods: {
+    showMovieInfo(){
+      this.searchFlag = true
     }
   }
 }

@@ -15,22 +15,22 @@
             <v-spacer/>
             <v-btn class="success" text large href="/">
               Home
-              <v-icon dark right>mdi-home</v-icon>
+              <VuetifyIcon :icon="'mdi-home'"/>
             </v-btn>
           </v-card-actions>
         </v-card>
       </v-flex>
-
     </v-layout>
   </v-container>
 </template>
 
 <script>
+import VuetifyIcon from '@/components/atoms/VuetifyIcon.vue'
 
 export default {
   name: 'NotFoundPage',
   components: {
-      //Login
+    VuetifyIcon
   },
   data () {
     return {

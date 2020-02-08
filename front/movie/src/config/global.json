@@ -3,12 +3,12 @@
         {
           "name": "Consulting and suppourt",
           "icon": "mdi-vuetify",
-          "link": "/consulting-and-support"
+          "link": "/template1"
         },
         {
             "name": "Consulting and suppourt2",
             "icon": "mdi-vuetify",
-            "link": "/consulting-and-support"
+            "link": "/template2"
         }
     ],
     "navLists": [
