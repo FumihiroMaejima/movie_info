@@ -1,9 +1,5 @@
 <template>
-  <v-card
-    class="mx-auto text-center"
-    color="green"
-    dark
-  >
+  <v-card class="mx-auto text-center" color="green" dark>
     <v-card-text>
       <v-sheet color="rgba(0, 0, 0, .12)">
         <v-sparkline
@@ -24,23 +20,19 @@
 
 <script>
 
-
 export default {
   name: 'Graph',
   /*
   components: {
-    DashBoardFooter,
-    DashBoardNavBar,
-    DashBoardSideBar
   }
   */
-    data: () => ({
-     labels: [
-        '12am','3am','6am','9am','12pm','3pm','6pm','9pm',
-      ],
-      value: [
-        423,446,675,510,590,610,760,
-      ],
-    }),
+  data: () => ({
+    labels: [
+      '12am','3am','6am','9am','12pm','3pm','6pm','9pm',
+    ],
+    value: [
+      423,446,675,510,590,610,760,
+    ],
+  }),
 }
 </script>

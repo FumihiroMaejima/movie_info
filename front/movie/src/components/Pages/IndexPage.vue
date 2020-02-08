@@ -6,8 +6,6 @@
 
 <script>
 import Index from '@/components/organisms/Index.vue'
-// IndexPage
-// import def from '@/config/default.json'
 
 export default {
   name: 'IndexPage',
