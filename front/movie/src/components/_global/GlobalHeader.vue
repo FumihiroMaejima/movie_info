@@ -38,7 +38,7 @@
 
     <v-app-bar dark app clipped-left>
       <v-app-bar-nav-icon @click="open=!open"></v-app-bar-nav-icon>
-      <v-toolbar-title>Vuetify</v-toolbar-title>
+      <v-toolbar-title>Movie Search</v-toolbar-title>
       <v-spacer></v-spacer>
       <v-toolbar-items>
         <v-menu offset-y>
