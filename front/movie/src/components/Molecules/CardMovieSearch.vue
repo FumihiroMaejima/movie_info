@@ -19,16 +19,17 @@
       </v-row>
       <v-card-actions>
         <v-spacer/>
-        <VuetifyButton
+        <FunctionButton
           :class="'success'"
           :largeOption="true"
           :msg="'Search!'"
+          :checkDisabled="disabledFlag"
           :clickEvent="startSearch"
         >
           <template>
             <VuetifyIcon :icon="'mdi-database-search'"/>
           </template>
-        </VuetifyButton>
+        </FunctionButton>
       </v-card-actions>
     </v-card-text>
   </v-card>
@@ -36,12 +37,12 @@
 
 <script>
 import VuetifyIcon from '@/components/atoms/VuetifyIcon.vue'
-import VuetifyButton from '@/components/atoms/VuetifyButton.vue'
+import FunctionButton from '@/components/atoms/FunctionButton.vue'
 
 export default {
   name: 'CardMovieSearch',
   components: {
-    VuetifyButton,
+    FunctionButton,
     VuetifyIcon
   },
   props: {
@@ -56,6 +57,7 @@ export default {
   },
   data () {
     return {
+      disabledFlag: true
     }
   },
   computed: {
@@ -64,6 +66,7 @@ export default {
         return this.selectData
       },
       set(SetSelectData) {
+        this.checkDisabledData(SetSelectData)
         return SetSelectData
       }
     }
@@ -71,6 +74,9 @@ export default {
   methods: {
     SetSelectData() {
       return this.selectData
+    },
+    checkDisabledData(inputData) {
+      return this.disabledFlag = (inputData === null) ? true : false
     },
     startSearch() {
       this.$emit('searchEvent', true)

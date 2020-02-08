@@ -3,6 +3,7 @@
     :class="classData"
     text
     :large="largeOption"
+    :disabled="checkDisabled"
     @click="clickEvent"
   >
     {{ msg }}
@@ -12,7 +13,7 @@
 
 <script>
 export default {
-  name: "VuetifyButton",
+  name: "FunctionButton",
   props: {
     classData: {
       type: String,
@@ -20,6 +21,11 @@ export default {
       default: ''
     },
     largeOption: {
+      type: Boolean,
+      required: false,
+      default: false
+    },
+    checkDisabled : {
       type: Boolean,
       required: false,
       default: false
