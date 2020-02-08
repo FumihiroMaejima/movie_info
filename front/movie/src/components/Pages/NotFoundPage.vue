@@ -13,7 +13,7 @@
           </v-card-text>
           <v-card-actions>
             <v-spacer/>
-            <v-btn class="success" text large>
+            <v-btn class="success" text large href="/">
               Home
               <v-icon dark right>mdi-home</v-icon>
             </v-btn>

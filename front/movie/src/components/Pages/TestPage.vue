@@ -7,8 +7,8 @@
 </template>
 
 <script>
-import TestSubModuleComponent from './TestSubModuleComponent.vue'
-import TestModuleComponent from './TestModuleComponent.vue'
+import TestSubModuleComponent from '@/components/organisms/TestSubModuleComponent.vue'
+import TestModuleComponent from '@/components/organisms/TestModuleComponent.vue'
 
 export default {
     name: 'app',
