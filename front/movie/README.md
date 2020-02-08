@@ -132,12 +132,14 @@ movie/.stylelintrcの作成と編集
 movie/src/Components下に下記のディレクトリを作成する
 Atomic Designs
 
+＊(pagesとorganismsで十分作れるのならtemplatesは作らない)
+
 ```
-Atoms
-Molecules
-Organisms
-Templates
-Pages
+atoms
+molecules
+organisms
+templates
+pages
 ```
 
 ## vue-routerの設定

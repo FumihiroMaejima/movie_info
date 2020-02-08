@@ -1,10 +1,10 @@
 <template>
-  <v-col cols="12" sm="6" md="4" lg="3"></v-col>
+  <v-row></v-row>
 </template>
 
 <script>
 export default {
-  name: "Col",
+  name: "VuetifyRow",
   data(){
     return{
     }

@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  name: "Button",
+  name: "VuetifyButton",
   props: {
     msg: {
       type: String,
