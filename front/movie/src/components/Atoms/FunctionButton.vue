@@ -25,7 +25,7 @@ export default {
       required: false,
       default: false
     },
-    checkDisabled : {
+    checkDisabled: {
       type: Boolean,
       required: false,
       default: false

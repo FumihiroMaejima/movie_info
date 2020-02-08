@@ -302,7 +302,107 @@ export default {
 
 vuetifのインストール
 
+yarnでinstallしないことに注意
+
 ```
 $ docker exec -it pymovie_nginx /bin/sh -c "cd /var/www/ && vue add vuetify"
+```
+
+
+## テスト環境の構築
+
+下記をインストール
+
+```
+$ yarn add @vue/test-utils
+$ yarn add jest
+$ yarn add vue-jest
+$ yarn add babel-jest
+```
+
+babel-core、babel-preset-envを「devDependencies」側にインストールする必要があるが、こちらはpackage.jsonにてバージョンを指定した上でyarn installすること。
+
+2020年2月現在は下記の通り
+
+```
+"babel-core": "^7.0.0-bridge.0",
+"babel-preset-env": "^7.0.0-beta.3",
+```
+
+
+package.jsonのscriptにJestを設定
+
+```
+"scripts": {
+    ・
+	"test:unit": "jest",
+    ・
+}
+```
+
+ackage.jsonにJestの設定
+
+```
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "vue"
+    ],
+    "transform": {
+      ".*\\.(vue)$": "vue-jest",
+      "^.+\\.js$": "<rootDir>/node_modules/babel-jest"
+    },
+    "moduleNameMapper": {
+      "^@/(.*)$": "<rootDir>/src/$1"
+    }
+  }
+```
+
+.babelrcの作成
+
+```
+{
+  "presets": [["@babel/preset-env",{
+    "modules": false,
+    "targets": {
+      "browsers": "> 1%",
+      "ie": 11,
+      "uglify": true
+    },
+    "useBuiltIns": "entry"
+  }]],
+  "env": {
+    "test:unit": {
+      "presets": [
+        ["env",{"targets": {"node": "current"}}]
+      ]
+    }
+  }
+}
+```
+
+
+/tests/unit/ディレクトリの作成し、その中にテストファイルを作成する。
+
+eslintが邪魔するなら「/* eslint-disable no-undef */」を先頭に追記
+
+Sampleコンポーネントファイルのテストファイル、Sample.spec.jsとすると下記の様な具合
+/tests/unit/Sample.spec.js
+
+```
+import Vue from 'vue'
+import Vuetify from 'vuetify'
+import { shallowMount } from '@vue/test-utils'
+import Sample from '@/components/molecules/Sample.vue'
+
+Vue.use(Vuetify)
+const wrapper = shallowMount(Sample)
+
+describe('Sample test', () => {
+  it('sampleFunction param true', () => {
+    expect(wrapper.vm.sampleFunction(true)).toBeTruthy()
+  })
+})
 ```
 
