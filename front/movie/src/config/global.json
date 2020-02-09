@@ -1,0 +1,31 @@
+{
+    "supports": [
+        {
+          "name": "Consulting and suppourt",
+          "icon": "mdi-vuetify",
+          "link": "/template1"
+        },
+        {
+            "name": "Consulting and suppourt2",
+            "icon": "mdi-vuetify",
+            "link": "/template2"
+        }
+    ],
+    "navLists": [
+        {
+          "name": "Getting Started",
+          "icon": "mdi-speedometer",
+          "lists": [
+            {"name": "Quick Start","link": "/"},
+            {"name": "Pre-made layouts","link": "/"}
+        ]
+        },
+        {
+          "name": "Customization",
+          "icon": "mdi-cogs"
+        }
+    ],
+    "footerMessage": {
+        "title": "Copyright(C)2020 calicocat.tokyo,Allright Reserved."
+    }
+}

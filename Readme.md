@@ -290,6 +290,8 @@ $ docker-compose run uwsgi python manage.py migrate
 
 本番環境での手順を簡単にまとめる。
 
+詳細は[ec2_deploymentリポジトリ](https://github.com/FumihiroMaejima/ec2_deployment)にてまとめてある。
+
 ### 手順
 
 ```
