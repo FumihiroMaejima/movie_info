@@ -303,10 +303,9 @@ $ docker-compose run uwsgi python manage.py migrate
 ```
 
 環境の立ち上げは下記の通り
-プロジェクトは既に出来ている為、最初は適当はコマンドでコンテナを立ち上げさせる。
 
 ```
-docker-compose -f ./docker-compose.production.yml run uwsgi python --version
+docker-compose -f ./docker-compose.production.yml run uwsgi up -d uwsgi
 docker-compose -f ./docker-compose.production.yml run uwsgi ./manage.py makemigrations
 docker-compose -f ./docker-compose.production.yml run uwsgi ./manage.py migrate
 docker-compose -f ./docker-compose.production.yml run uwsgi ./manage.py createsuperuser
