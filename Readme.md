@@ -301,3 +301,31 @@ $ docker-compose run uwsgi python manage.py migrate
 ・.well-knownディレクトリの作成
 ・コンテナのビルド
 ```
+
+環境の立ち上げは下記の通り
+
+```
+docker-compose -f ./docker-compose.production.yml run uwsgi up -d uwsgi
+docker-compose -f ./docker-compose.production.yml run uwsgi ./manage.py makemigrations
+docker-compose -f ./docker-compose.production.yml run uwsgi ./manage.py migrate
+docker-compose -f ./docker-compose.production.yml run uwsgi ./manage.py createsuperuser
+docker-compose -f ./docker-compose.production.yml run uwsgi ./manage.py collectstatic
+docker-compose -f ./docker-compose.production.yml up -d
+```
+
+コンテナを作り直す時は下記
+
+```
+docker-compose -f ./docker-compose.production.yml down --rmi all
+sudo rm -rf app/src/movie/__pycache__
+sudo rm -rf app/src/pymovie/__pycache__
+sudo rm -rf mysql/mysql_data
+```
+
+コンテナが立ち上がらない時
+
+```
+docker ps -a
+⇨コンテナIDを調べる
+docker logs コンテナID
+```

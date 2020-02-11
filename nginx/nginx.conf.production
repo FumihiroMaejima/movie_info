@@ -50,9 +50,10 @@ http {
         }
 
         location ^~ /.well-known/acme-challenge {
-            include uwsgi_params;
-            uwsgi_pass uwsgi;
-            root uwsgi;
+            # include uwsgi_params;
+            # uwsgi_pass uwsgi;
+            # root uwsgi;
+            root /var/www/dist;
             default_type "text/plain";
             try_files $uri =404;
         }
@@ -71,8 +72,8 @@ http {
           try_files $uri $uri/ /index.html;
         }
 
-        access_log /var/log/nginx/pymovie/access_ssl.log  main;
-        error_log /var/log/nginx/pymovie/error_ssl.log;
+        access_log /var/log/nginx/access_ssl_pymovie.log  main;
+        error_log /var/log/nginx/error_ssl_pymovie.log;
 
         ssl_certificate /etc/letsencrypt/live/your_domain/fullchain.pem;
         ssl_certificate_key /etc/letsencrypt/live/your_domain/privkey.pem;
