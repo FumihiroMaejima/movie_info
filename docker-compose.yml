@@ -22,7 +22,7 @@ services:
       DB_PASSWORD: ${DB_PASSWORD}
       DB_HOST: ${DB_HOST}
       DB_HOST_NAME: ${DB_HOST_NAME}
-      DB_PORT: ${MYSQL_PORT}
+      DB_PORT: ${DB_PORT}
       DB_DATABASE: ${DB_DATABASE}
       INCUIRY_TO: ${INCUIRY_TO}
 
