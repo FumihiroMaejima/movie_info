@@ -1,0 +1,405 @@
+@charset "UTF-8";
+
+body {
+    /* background-color: #f7f7f7; */
+    /* background-color: #E4D299; */
+    /* background-color: #E1DDC3; */
+    background-color: #F3F2E7;
+
+}
+main {
+    max-width: 750px;
+    word-wrap: break-word;
+    padding-top: 100px;
+}
+.navbar {
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+    height: 45px;
+    color: #000;
+}
+.global-header {
+    background: #212529 no-repeat center center;
+    background-size: cover;
+    margin-bottom: 30px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 24;
+    width: 100%;
+}
+.global-header .header-text {
+    position: relative;
+    padding-bottom: 1px;
+    height: 100%;
+    background-color: #212529;
+    color: rgba(255,255,255,0.9);
+}
+.global-header .header-text h1 {
+    margin: 0 auto;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    text-align: center;
+    font-weight: 200;
+    font-family: Courier !important;
+}
+.global-header .header-text h1 a {
+    color: #ffffff;
+    text-decoration: none;
+}
+.global-header .tag-line {
+    margin: 10px auto;
+    padding: 0 10px;
+    max-width: 430px;
+    color: rgba(255,255,255,0.7);
+    text-align: center;
+    font-weight: 300;
+}
+
+.btn {
+    white-space: nowrap;
+}
+
+/* 画面サイズごとの設定 */
+/* 479px以下 */
+@media screen and (max-width: 479px) {
+    main {
+        padding-top: 70px;
+    }
+
+    .header-text h1 {
+        font-size: 150%;
+    }
+}
+
+/* 480px以上 764px以下*/
+@media screen and (min-width: 480px) and (max-width: 764px) {
+    .tab_wrap {
+        width: 470px;
+        margin: 10px auto;
+    }
+}
+
+/* 765px以上 */
+@media screen and (min-width: 765px) {
+    .tab_wrap {
+        width: 470px;
+        margin: 10px auto;
+    }
+}
+/* 画面サイズごとの設定 終了 */
+
+footer{
+    font-size: 80%;                 /*フォントサイズの指定*/
+    width: 100%;                    /*横幅の指定*/
+    text-align: center;             /*文字の中央寄せ*/
+    padding-top: 10px;              /*文字上部の余白指定*/
+    padding-bottom: 5px;            /*文字下部の余白指定*/
+    background-color: #212529;    /*背景色の指定*/
+}
+footer address{
+    color: #fff;          /*文字色の指定*/
+    letter-spacing: 5px;    /*文字と文字の間隔をあける*/
+    font-style: normal;     /*文字の斜体を取り消す*/
+}
+
+
+/* メインコンテンツがヘッダーに隠れる現象の回避 */
+/* 20191204 実装の過程で不要になった。 */
+ .row-position-down{
+    /*margin-top:-50px;*/
+ }
+
+/*
+ * ゲームヘッダーのデザイン
+ */
+.game-header-menu{
+    position: relative;
+    margin: 0 0 5px 0;
+    padding: 5px 5px;
+    background: #D2B48C;
+    border-radius: 4px;
+    color: #FFFFFF;
+}
+
+/*
+ * ゲームヘッダー内要素
+ */
+.game-header-menu div:not(.player-param){
+    display: inline-block;  /* player-paramクラスだけ除外 */
+}
+.game-header-menu div{
+    margin: 5px 5px 0 5px;
+    padding: 5px 5px;
+    background: #601F1C;
+    border-radius: 4px;
+}
+/*
+.player-param{
+    background: #601F1C;
+    border-radius: 4px;
+}
+*/
+
+/*
+ * メニューボタンデザイン
+ */
+.menu-btn{
+    position: relative;
+    max-width: 180px;
+    background-color: #813f3c;
+    color: #FFFFFF!important;
+    text-decoration: none!important;
+    font-weight: bold;
+    padding: 10px 12px;
+    line-height: 52px;
+    transition: none;
+    box-shadow: 0 3px 0 #651511;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, .3);
+    border-radius: 4px;
+}
+.menu-btn:hover{
+    background-color: #975956;
+    box-shadow: 0 3px 0 #723a38;
+}
+.menu-btn:active{
+    top: 3px;
+    box-shadow: none;
+}
+
+/*
+ * メイン画面のデザイン
+ */
+.main-view{
+    position: relative;
+    margin: 0 0 0 0px;
+    padding: 35px 30px;
+}
+.main-view-sub{
+    /*background: #FFF9E7;*/
+    background: #FAEFD8;
+    box-shadow: inset 0 0 30px rgba(230,220,190,1);
+}
+.main-view:before{
+    content: " ";
+    display: block;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    border-width: 0 30px 30px 0;
+    border-style: solid;
+    width: 0;
+    -webkit-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+/* 上、右の値のborder-colorはメインのbackground-colorに合わせる */
+.main-view-sub:before{
+    background: #E8DDBD;
+    border-color: #F3F2E7 #F3F2E7 #E8DDBD #E8DDBD;
+}
+.main-view h1{
+    font-size: 24px;
+    margin: 0 0 15px;
+    color: #603913;
+}
+.main-view p{
+    font-family: 'arial narrow', serif;
+    line-height: 1.4em;
+}
+
+/*
+ * ゲームシーン
+ */
+.game-view{
+    position: relative;
+    margin: 0 0 3px 0;
+    padding: 5px 5px;
+    /*background: #D2B48C;*/
+    background: #FFF9E7;
+    border-radius: 4px;
+    box-shadow: 5px 5px 5px #E1D6BD;
+}
+
+/*
+ * ゲームシーン内要素
+ */
+.game-view div{
+    display: inline-block;
+}
+
+
+/*
+ * ゲームシーン内テーブルのデザイン
+ */
+table.game-table{
+  border-collapse: separate;
+  border-spacing: 5px;
+  margin: 0 auto;
+}
+td, th{
+    padding: 10px;
+    text-align: center;
+}
+th:first-of-type, td:first-of-type{
+    background: #b2ffd8;
+}
+th:nth-of-type(1), td:nth-of-type(1){
+    background: #d1ffd1;
+}
+th:nth-of-type(2), td:nth-of-type(2){
+    background: #e8ffd1;
+}
+th:nth-of-type(3), td:nth-of-type(3){
+    background: #ffffd1;
+}
+th:nth-of-type(4), td:nth-of-type(4){
+    background: #ffe8d1;
+}
+
+/*
+ * ゲームナビゲーションのデザイン
+ */
+.game-nab{
+    /* width: 400px; */
+    position: relative;
+    margin: 0 0 0 0px;
+    padding: 8px 15px 1px 15px;
+    color:#FFFFFF;
+    border-radius: 2px;
+}
+.game-nab-sub{
+    background: #601F1C;
+    box-shadow: inset 0 0 30px rgba(97,31,28,1);
+}
+.game-nab:before {
+    content: " ";
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    border-width: 0 10px 10px 0;
+    border-style: solid;
+    width: 0;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+}
+/* 上、右の値のborder-colorはmain-viewのbackground-colorに合わせる */
+.game-nab-sub:before {
+    background: #E8DDBD;
+    border-color: #FAEFD8 #FAEFD8 #E8DDBD #E8DDBD;
+}
+
+.game-nab p{
+    font-family: 'arial narrow', serif;
+    line-height: 1.4em;
+}
+
+
+/*
+ * メインページ以外のレイアウト
+ */
+.other-page-wrap {
+  padding: 5px 20px;
+  border: 1px solid #DCDCDC;
+  display: inline-block;
+  box-shadow: 0px 0px 8px #DCDCDC;
+}
+.other-page-wrap h1 {
+  font-size: 18px;
+}
+.other-page-wrap p {
+  margin-left: 10px;
+  max-width: 600px;
+}
+.strength-ward {
+  color: #FF0000;
+}
+
+/*
+ * ハンバーガーメニュー
+ */
+#page_navi {
+  width: 50px;
+  height: 50px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 26;
+  border-radius: 5px;
+  background: transparent;
+  opacity: 0.6;
+}
+/*チェックボックス等は非表示に*/
+.nav-unshown {
+    display:none;
+}
+/*アイコンのスペース*/
+#nav-open {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    vertical-align: middle;
+    margin: 5px;
+    padding: 5px 2.5px;
+    border-radius: 5px;
+    background: #777778;
+}
+/*ハンバーガーアイコン関連*/
+#nav-open span, #nav-open span:before, #nav-open span:after {
+    position: absolute;
+    height: 3px;/*線の太さ*/
+    width: 25px;/*長さ*/
+    border-radius: 3px;
+    background: #555;
+    display: block;
+    content: '';
+    cursor: pointer;
+}
+#nav-open span:before {
+    bottom: -8px;
+}
+#nav-open span:after {
+    bottom: -16px;
+}
+/*閉じる用の薄黒カバー*/
+#nav-close {
+    display: none;/*はじめは隠しておく*/
+    position: fixed;
+    z-index: 99;
+    top: 0;/*全体に広がるように*/
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    opacity: 0;
+    transition: .3s ease-in-out;
+}
+/*中身*/
+#nav-content {
+    overflow: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;/*最前面に*/
+    width: 90%;/*右側に隙間を作る（閉じるカバーを表示）*/
+    max-width: 330px;/*最大幅（調整してください）*/
+    height: 100%;
+    background: #fff;/*背景色*/
+    transition: .3s ease-in-out;/*滑らかに表示*/
+    -webkit-transform: translateX(-105%);
+    transform: translateX(-105%);/*左に隠しておく*/
+}
+#nav-content a {
+    text-decoration: none!important;
+    color: #212529;
+}
+/*チェックが入ったらもろもろ表示*/
+#nav-input:checked ~ #nav-close {
+    display: block;/*カバーを表示*/
+    opacity: .5;
+}
+#nav-input:checked ~ #nav-content {
+    -webkit-transform: translateX(0%);
+    transform: translateX(0%);/*中身を表示（右へスライド）*/
+    box-shadow: 6px 0 25px rgba(0,0,0,.15);
+}
