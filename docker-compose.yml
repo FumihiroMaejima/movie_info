@@ -24,6 +24,8 @@ services:
       DB_HOST_NAME: ${DB_HOST_NAME}
       DB_PORT: ${DB_PORT}
       DB_DATABASE: ${DB_DATABASE}
+      TMDB_API_DOMAIN: ${TMDB_API_DOMAIN}
+      TMDB_API_KEY: ${TMDB_API_KEY}
       INCUIRY_TO: ${INCUIRY_TO}
 
   nginx:

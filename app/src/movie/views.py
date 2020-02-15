@@ -1,11 +1,13 @@
+from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader
+from .functions import *
 
 def index(request):
-    latest_question_list = 1
     template = loader.get_template('movie/index.html')
     context = {
-        #'latest_question_list': latest_question_list,
+        'test': testApi()
+        # 'key': value,
     }
     return HttpResponse(template.render(context, request))
 

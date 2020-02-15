@@ -8,3 +8,4 @@ Pillow==7.0.0
 requests==2.22.0
 djangorestframework==3.11.0
 django-filter==2.2.0
+attrdict==2.0.1
