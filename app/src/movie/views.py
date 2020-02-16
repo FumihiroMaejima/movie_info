@@ -6,7 +6,9 @@ from .functions import *
 def index(request):
     template = loader.get_template('movie/index.html')
     context = {
-        'test': testApi()
+        'test': getPopularApi(),
+        'testImage': getImage()
+        # 'test': testApi()
         # 'key': value,
     }
     return HttpResponse(template.render(context, request))
