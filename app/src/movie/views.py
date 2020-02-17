@@ -6,7 +6,7 @@ from .functions import *
 def index(request):
     template = loader.get_template('movie/index.html')
     context = {
-        'test': execSearchApi(11),
+        'response': execSearchApi('Hello'),
         #'test': execGetApi(),
         # 'test': testApi()
         # 'key': value,

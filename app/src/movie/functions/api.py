@@ -29,16 +29,31 @@ def getPopularApi():
 
 
 def searchMovie(query=''):
-    response = requests.get(
-        API_SEARCH_CONFIG.search_url,
-        params = {
-            API_SEARCH_CONFIG.param_api_key: API_SEARCH_CONFIG.value_api_key,
-            API_SEARCH_CONFIG.param_language: API_SEARCH_CONFIG.value_language,
-            API_SEARCH_CONFIG.param_page: API_SEARCH_CONFIG.value_page,
-            API_SEARCH_CONFIG.param_query: query
+    try:
+        response = requests.get(
+            API_SEARCH_CONFIG.search_url,
+            params={
+                API_SEARCH_CONFIG.param_api_key: API_SEARCH_CONFIG.value_api_key,
+                API_SEARCH_CONFIG.param_language: API_SEARCH_CONFIG.value_language,
+                API_SEARCH_CONFIG.param_page: API_SEARCH_CONFIG.value_page,
+                API_SEARCH_CONFIG.param_query: query
+            }
+        )
+
+        result = {
+            'execution' : True,
+            'message' : 'request OK',
+            'data' : response.json()
         }
-    )
-    return response.json()
+        return result
+    except:
+        result = {
+            'execution' : False,
+            'message' : 'request NG',
+            'data' : ''
+        }
+        return result
+
 
 def getImage():
     response = requests.get(

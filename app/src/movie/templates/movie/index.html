@@ -1,10 +1,27 @@
 {% extends "layout.html" %}
 {% block content %}
     <p>test api response report</p>
-    <p>test 1</p>
+    <p>movie list</p>
+
+    <p>{{response.execution}}</p>
+
+    {% if response.execution %}
+        {% for movie in response.data.results %}
+        <div>
+            <img src="https://image.tmdb.org/t/p/w92{{ movie.poster_path }}" alt="イメージポスター画像">
+            <img src="https://image.tmdb.org/t/p/w92{{ movie.backdrop_path }}" alt="イメージバックドロップ画像">
+            <p>{{movie.title}}</p>
+            <p>{{movie.overview}}</p>
+        </div>
+        {% endfor %}
+    {% else %}
+        <p>{{response.message}}</p>
+        <p>{{response.data}}</p>
+    {% endif %}
+<!--
     <div>
-        <p>{{test}}</p>
-    </div>
+        <p>{{response}}</p>
+    </div> -->
 {% endblock %}
 
 
