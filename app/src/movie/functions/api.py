@@ -1,9 +1,7 @@
 import django_filters
 import requests
-# import json
 from attrdict import AttrDict
 from movie.config import *
-from rest_framework import viewsets, filters
 
 def testApi():
     response = requests.get(
