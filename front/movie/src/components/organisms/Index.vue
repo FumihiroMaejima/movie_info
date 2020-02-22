@@ -4,7 +4,7 @@
       <CardMovieSearch
        :selectData="select"
        :itemsData="items"
-       @searchEvent="showMovieInfo"
+       @searchEvent="showMovieInfo($event)"
       />
     </v-flex>
 
@@ -41,8 +41,26 @@ export default {
     }
   },
   methods: {
-    showMovieInfo(){
-      this.searchFlag = true
+    showMovieInfo(value){
+      this.searchFlag = value
+
+      /* eslint-disable no-console */
+      this.$client
+      .get('movies/search', {
+        params : {
+          'title' : 'Hello'
+        }
+      })
+      .then(response => {
+        console.log(response)
+        console.log(response.data)
+      })
+      .catch(error => {
+        /* eslint-disable no-console */
+        console.log('error name: ' + error.name)
+        console.log('error message: ' + error.message)
+        this.searchFlag = false
+      })
     }
   }
 }
