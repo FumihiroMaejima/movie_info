@@ -27,7 +27,7 @@ SECRET_KEY = '8uqd=rb_hm$bv1*0f%+o6fl$-m0q3s&u4$15t3lj5iz!w_8@70'
 DEBUG = False
 
 # ALLOWED_HOSTS = ['*']
-ALLOWED_HOSTS = [os.getenv('APP_URL', 'http://localhost')]
+ALLOWED_HOSTS = [os.getenv('APP_URL', 'localhost')]
 
 # Application definition
 
