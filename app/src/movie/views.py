@@ -5,6 +5,10 @@ from rest_framework import viewsets, filters
 from rest_framework.response import Response
 from .functions import *
 
+class MovieTitleViewSet(viewsets.ViewSet):
+    def list(self, request):
+        return Response(execGetMovieTitleApi())
+
 class MovieViewSet(viewsets.ViewSet):
     def list(self, request):
         # queryset = User.objects.all()

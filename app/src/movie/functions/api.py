@@ -26,6 +26,17 @@ def getPopularApi():
     return response.json()
 
 
+def getPopularApiPerPage(page=1):
+    response = requests.get(
+        API_POPULAR_CONFIG.test_api_url,
+        params={
+            API_POPULAR_CONFIG.param_api_key: API_POPULAR_CONFIG.value_api_key,
+            API_POPULAR_CONFIG.param_language: API_POPULAR_CONFIG.value_language,
+            API_POPULAR_CONFIG.param_page: page
+        }
+    )
+    return response.json()
+
 def searchMovie(query=''):
     try:
         response = requests.get(

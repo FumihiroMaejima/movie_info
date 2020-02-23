@@ -1,8 +1,9 @@
 from django.urls import path
-from movie.views import MovieViewSet
+from movie.views import MovieTitleViewSet, MovieViewSet
 from rest_framework.routers import DefaultRouter
 
 router = DefaultRouter()
+router.register(r'movies/titles', MovieTitleViewSet, basename='movie')
 router.register(r'movies/search', MovieViewSet, basename='movie')
 urlpatterns = router.urls
 
