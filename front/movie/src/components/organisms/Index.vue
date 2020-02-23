@@ -62,6 +62,14 @@ export default {
     }
   },
   computed: {
+    getTitlesList: {
+      get() {
+        return this.$store.getters['index/titles']
+      },
+      set(SetTitlesList) {
+        this.$store.dispatch('index/getTitlesDataAction', SetTitlesList)
+      }
+    },
     getSelectData: {
       get() {
         return this.$store.getters['index/searchData']
@@ -77,7 +85,8 @@ export default {
     this.$client
     .get('movies/titles')
     .then(response => {
-      this.titles = response.data.data
+      // this.titles = response.data.data
+      this.$store.dispatch('index/getTitlesDataAction', response.data.data)
     })
     .catch(error => {
       this.errorFlag = true
@@ -85,6 +94,9 @@ export default {
     })
   },
   methods: {
+    SetTitlesList() {
+      return this.$store.getters['index/titles']
+    },
     SetSelectData() {
       return this.$store.getters['index/searchData']
     },
