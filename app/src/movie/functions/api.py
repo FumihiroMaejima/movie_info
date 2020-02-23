@@ -27,15 +27,23 @@ def getPopularApi():
 
 
 def getPopularApiPerPage(page=1):
-    response = requests.get(
-        API_POPULAR_CONFIG.test_api_url,
-        params={
-            API_POPULAR_CONFIG.param_api_key: API_POPULAR_CONFIG.value_api_key,
-            API_POPULAR_CONFIG.param_language: API_POPULAR_CONFIG.value_language,
-            API_POPULAR_CONFIG.param_page: page
+    try:
+        response = requests.get(
+            API_POPULAR_CONFIG.test_api_url,
+            params={
+                API_POPULAR_CONFIG.param_api_key: API_POPULAR_CONFIG.value_api_key,
+                API_POPULAR_CONFIG.param_language: API_POPULAR_CONFIG.value_language,
+                API_POPULAR_CONFIG.param_page: page
+            }
+        )
+        return response.json()
+    except:
+        result = {
+            'execution': False,
+            'message': 'request NG',
+            'data': ''
         }
-    )
-    return response.json()
+        return result
 
 def searchMovie(query=''):
     try:

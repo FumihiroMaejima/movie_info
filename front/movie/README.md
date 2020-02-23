@@ -61,7 +61,7 @@ $ yarn add vue-router
 $ yarn add vuex
 $ yarn add axios
 $ yarn add axios-mock-server
-$ yarn add vuetify
+$ vue add vuetify
 $ yarn add material-design-icons-iconfont
 $ yarn add @vue/test-utils
 $ yarn add --dev prettier
