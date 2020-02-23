@@ -57,7 +57,6 @@ export default {
       errorMessage: '',
       searchFlag: false,
       noInputFlag: true,
-      select: def.searchListItem.select,
       titles: [],
       movieInfo: def.searchMovieInfo
     }
@@ -69,14 +68,7 @@ export default {
       },
       set(SetSelectData) {
         this.checkDisabledData(SetSelectData)
-
-        /* eslint-disable no-console */
-        console.log('SetSelectData: ' + SetSelectData)
-
         this.$store.dispatch('index/getSearchDataAction', SetSelectData)
-
-        /* eslint-disable no-console */
-        console.log('getSelectData: ' + this.$store.getters['index/searchData'])
       }
     }
   },
@@ -100,8 +92,6 @@ export default {
       return this.noInputFlag = (inputData === null) ? true : false
     },
     showMovieInfo(eventFlag){
-      this.searchFlag = eventFlag
-
       this.$client
       .get('movies/search', {
         params : {
@@ -109,18 +99,32 @@ export default {
         }
       })
       .then(response => {
+        const responseData = response.data
+        const execution = responseData.execution
+        const moviesData = responseData.data.results
         /* eslint-disable no-console */
         console.log(response)
-        console.log(response.data)
+        console.log(responseData)
 
-        this.errorFlag = !response.data.execution ? true : false
-        this.noInputFlag = !response.data.execution ? true : false
-        this.searchFlag = !response.data.execution ? false : true
+        if(!execution || !moviesData.length) {
+          this.errorFlag = true
+          this.noInputFlag = true
+          this.searchFlag = false
+          if(!execution) {
+            /* バリデーションエラーの場合 */
+            return this.errorMessage = responseData.message
+          }
+          else {
+            /* 検索数が0の場合 */
+            return this.errorMessage = 'search result is 0. please try again.'
+          }
 
-        if(!response.data.execution) {
-          return this.errorMessage = response.data.message
         }
-
+        else {
+          this.errorFlag = false
+          this.noInputFlag = false
+          this.searchFlag = eventFlag
+        }
       })
       .catch(error => {
         this.errorFlag = true
