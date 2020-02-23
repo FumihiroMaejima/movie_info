@@ -15,7 +15,7 @@
         <template>
           <v-combobox
             v-model="getSelectData"
-            :items="titles"
+            :items="getTitlesList"
             label="Input Movie Title"
             outlined
             dense
@@ -57,18 +57,12 @@ export default {
       errorMessage: '',
       searchFlag: false,
       noInputFlag: true,
-      titles: [],
       movieInfo: def.searchMovieInfo
     }
   },
   computed: {
-    getTitlesList: {
-      get() {
-        return this.$store.getters['index/titles']
-      },
-      set(SetTitlesList) {
-        this.$store.dispatch('index/getTitlesDataAction', SetTitlesList)
-      }
+    getTitlesList() {
+      return this.$store.getters['index/titles']
     },
     getSelectData: {
       get() {
@@ -85,7 +79,6 @@ export default {
     this.$client
     .get('movies/titles')
     .then(response => {
-      // this.titles = response.data.data
       this.$store.dispatch('index/getTitlesDataAction', response.data.data)
     })
     .catch(error => {
@@ -94,9 +87,6 @@ export default {
     })
   },
   methods: {
-    SetTitlesList() {
-      return this.$store.getters['index/titles']
-    },
     SetSelectData() {
       return this.$store.getters['index/searchData']
     },
