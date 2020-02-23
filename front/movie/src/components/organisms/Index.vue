@@ -2,10 +2,20 @@
   <v-layout text-center wrap>
     <v-flex mb-5 xs12>
       <CardMovieSearch
-       :selectData="select"
-       :itemsData="items"
+      :disabledFlag="noInputFlag"
        @searchEvent="showMovieInfo($event)"
-      />
+      >
+        <template>
+          <v-combobox
+            v-model="getSelectData"
+            :items="items"
+            label="Input Movie Name"
+            outlined
+            dense
+            small-chips
+          />
+        </template>
+      </CardMovieSearch>
     </v-flex>
 
     <v-flex xs12 v-if="searchFlag">
@@ -35,14 +45,36 @@ export default {
         https://vuetifyjs.com/en/components/combobox
       */
       searchFlag: false,
+      noInputFlag: true,
       select: def.searchListItem.select,
       items: def.searchListItem.items,
       movieInfo: def.searchMovieInfo
     }
   },
+  computed: {
+    getSelectData: {
+      get() {
+        return this.$store.getters['index/searchData']
+      },
+      set(SetSelectData) {
+        this.checkDisabledData(SetSelectData)
+
+        console.log('SetSelectData: ' + SetSelectData)
+
+        this.$store.dispatch('index/getSearchDataAction', SetSelectData)
+        console.log('getSelectData: ' + this.$store.getters['index/searchData'])
+      }
+    }
+  },
   methods: {
-    showMovieInfo(value){
-      this.searchFlag = value
+    SetSelectData() {
+      return this.$store.getters['index/searchData']
+    },
+    checkDisabledData(inputData) {
+      return this.noInputFlag = (inputData === null) ? true : false
+    },
+    showMovieInfo(eventFlag){
+      this.searchFlag = eventFlag
 
       /* eslint-disable no-console */
       this.$client
