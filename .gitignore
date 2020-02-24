@@ -125,6 +125,7 @@ app/static/admin/js/*
 !app/static/admin/js/vendor/
 app/static/admin/js/admin/*
 app/static/admin/js/vendor/*
+app/static/rest_framework
 ### bundle
 app/static/bundles
 

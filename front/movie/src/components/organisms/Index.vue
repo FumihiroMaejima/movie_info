@@ -110,9 +110,6 @@ export default {
         const responseData = response.data
         const execution = responseData.execution
         const moviesData = responseData.data.results
-        /* eslint-disable no-console */
-        console.log(response)
-        console.log(responseData)
 
         if(!execution || !moviesData.length) {
           this.errorFlag = true
