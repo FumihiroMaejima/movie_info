@@ -1,11 +1,13 @@
 const state = () => ({
   titles: [],
-  searchData: ''
+  searchData: '',
+  MoviesData: {}
 })
 
 const getters = {
   titles: state => state.titles,
-  searchData: state => state.searchData
+  searchData: state => state.searchData,
+  MoviesData: state => state.MoviesData
 }
 
 const actions = {
@@ -14,6 +16,9 @@ const actions = {
   },
   getSearchDataAction({ commit }, payload) {
     commit('setSearchData', payload)
+  },
+  getMoviesDataAction({ commit }, payload) {
+    commit('setMoviesData', payload)
   }
 }
 
@@ -23,6 +28,9 @@ const mutations = {
   },
   setSearchData(state, payload) {
     state.searchData = payload
+  },
+  setMoviesData(state, payload) {
+    state.MoviesData = payload
   }
 }
 

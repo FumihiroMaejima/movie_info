@@ -27,7 +27,9 @@
 
     <v-flex xs12 v-if="searchFlag">
       <CardMovieInfo
-        :movieData="movieInfo"
+        v-for="movie in getMoviesData"
+        v-bind:key="movie.id"
+        :movieData="movie"
       />
     </v-flex>
   </v-layout>
@@ -37,7 +39,6 @@
 import VuetifyAlert from '@/components/atoms/VuetifyAlert.vue'
 import CardMovieInfo from '@/components/molecules/CardMovieInfo.vue'
 import CardMovieSearch from '@/components/molecules/CardMovieSearch.vue'
-import def from '@/config/default.json'
 
 export default {
   name: 'Index',
@@ -48,16 +49,10 @@ export default {
   },
   data () {
     return {
-      /*
-        source
-        https://vuetifyjs.com/en/components/cards
-        https://vuetifyjs.com/en/components/combobox
-      */
       errorFlag: false,
       errorMessage: '',
       searchFlag: false,
-      noInputFlag: true,
-      movieInfo: def.searchMovieInfo
+      noInputFlag: true
     }
   },
   computed: {
@@ -68,9 +63,17 @@ export default {
       get() {
         return this.$store.getters['index/searchData']
       },
-      set(SetSelectData) {
-        this.checkDisabledData(SetSelectData)
-        this.$store.dispatch('index/getSearchDataAction', SetSelectData)
+      set(setSelectData) {
+        this.checkDisabledData(setSelectData)
+        this.$store.dispatch('index/getSearchDataAction', setSelectData)
+      }
+    },
+    getMoviesData: {
+      get() {
+        return this.$store.getters['index/MoviesData']
+      },
+      set(setMoviesData) {
+        this.$store.dispatch('index/getMoviesDataAction', setMoviesData)
       }
     }
   },
@@ -87,8 +90,11 @@ export default {
     })
   },
   methods: {
-    SetSelectData() {
+    setSelectData() {
       return this.$store.getters['index/searchData']
+    },
+    setMoviesData() {
+      return this.$store.getters['index/MoviesData']
     },
     checkDisabledData(inputData) {
       return this.noInputFlag = (inputData === null) ? true : false
@@ -120,12 +126,12 @@ export default {
             /* 検索数が0の場合 */
             return this.errorMessage = 'search result is 0. please try again.'
           }
-
         }
         else {
           this.errorFlag = false
           this.noInputFlag = false
           this.searchFlag = eventFlag
+          this.$store.dispatch('index/getMoviesDataAction', moviesData)
         }
       })
       .catch(error => {

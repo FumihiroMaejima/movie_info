@@ -1,27 +1,27 @@
 {
     "supports": [
         {
-          "name": "Consulting and suppourt",
+          "name": "sample suppourt1",
           "icon": "mdi-vuetify",
           "link": "/template1"
         },
         {
-            "name": "Consulting and suppourt2",
+            "name": "sample suppourt2",
             "icon": "mdi-vuetify",
             "link": "/template2"
         }
     ],
     "navLists": [
         {
-          "name": "Getting Started",
+          "name": "Sample List1",
           "icon": "mdi-speedometer",
           "lists": [
-            {"name": "Quick Start","link": "/"},
-            {"name": "Pre-made layouts","link": "/"}
+            {"name": "Sub List1","link": "/"},
+            {"name": "Sub List2","link": "/"}
         ]
         },
         {
-          "name": "Customization",
+          "name": "Sample List2",
           "icon": "mdi-cogs"
         }
     ],
