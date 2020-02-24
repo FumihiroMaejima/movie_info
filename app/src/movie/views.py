@@ -1,11 +1,25 @@
+from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader
+from rest_framework import viewsets, filters
+from rest_framework.response import Response
+from .functions import *
+
+class MovieTitleViewSet(viewsets.ViewSet):
+    def list(self, request):
+        return Response(execGetMovieTitleApi())
+
+class MovieViewSet(viewsets.ViewSet):
+    def list(self, request):
+        # queryset = User.objects.all()
+        # serializer = UserSerializer(queryset, many=True)
+        # return Response(execSearchApi('Hello'))
+        return Response(execSearchApi(request.GET.get(key='title', default='')))
 
 def index(request):
-    latest_question_list = 1
     template = loader.get_template('movie/index.html')
     context = {
-        #'latest_question_list': latest_question_list,
+        'response': execSearchApi('Hello'),
     }
     return HttpResponse(template.render(context, request))
 

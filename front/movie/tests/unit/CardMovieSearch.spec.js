@@ -1,11 +1,14 @@
 /* eslint-disable no-undef */
-import Vue from 'vue'
+import { shallowMount, createLocalVue } from '@vue/test-utils'
 import Vuetify from 'vuetify'
-import { shallowMount } from '@vue/test-utils'
 import CardMovieSearch from '@/components/molecules/CardMovieSearch.vue'
 
-Vue.use(Vuetify)
-const wrapper = shallowMount(CardMovieSearch)
+const localVue = createLocalVue()
+localVue.use(Vuetify)
+
+const wrapper = shallowMount(CardMovieSearch, {
+  localVue
+})
 
 describe('CardMovieSearch test', () => {
   it('checkDisabledData param null', () => {
