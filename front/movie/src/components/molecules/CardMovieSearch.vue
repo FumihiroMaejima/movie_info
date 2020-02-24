@@ -7,14 +7,8 @@
       <div class="display-1 font-weight-thick">Movie Info Search Servise</div>
       <v-row>
         <v-col cols="12">
-          <v-combobox
-            v-model="getSelectData"
-            :items="itemsData"
-            label="Input Movie Name"
-            outlined
-            dense
-            small-chips
-          />
+          <!-- combobox -->
+          <slot/>
         </v-col>
       </v-row>
       <v-card-actions>
@@ -46,39 +40,18 @@ export default {
     VuetifyIcon
   },
   props: {
-    selectData: {
-      type: Object,
-      required: false
-    },
-    itemsData: {
-      type: Array,
-      required: false
+    disabledFlag: {
+      type: Boolean,
+      default: true
     }
   },
   data () {
     return {
-      disabledFlag: true
-    }
-  },
-  computed: {
-    getSelectData: {
-      get() {
-        return this.selectData
-      },
-      set(SetSelectData) {
-        this.checkDisabledData(SetSelectData)
-        return SetSelectData
-      }
     }
   },
   methods: {
-    SetSelectData() {
-      return this.selectData
-    },
-    checkDisabledData(inputData) {
-      return this.disabledFlag = (inputData === null) ? true : false
-    },
     startSearch() {
+      // return search event to parent.
       this.$emit('searchEvent', true)
     }
   }

@@ -1,7 +1,11 @@
-Django==2.2.9
+Django==2.2.10
 uwsgi==2.0.18
 #PyMySQL==0.9.3
 mysqlclient==1.4.6
 django-webpack-loader==0.6.0
 #Pillow==6.2.2
 Pillow==7.0.0
+requests==2.22.0
+djangorestframework==3.11.0
+django-filter==2.2.0
+attrdict==2.0.1
